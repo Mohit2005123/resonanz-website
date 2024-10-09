@@ -8,9 +8,21 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      keyframes: {
+        earth: {
+          '0%': { transform: 'rotate(360deg)' },
+          '100%': { transform: 'rotate(0deg)' },
+        }
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+      },
+      animation: {
+        "spin-slow": "earth 20s linear infinite",
+      },
+      fontFamily: {
+        'tungsten': ['Tungsten', 'sans-serif'],
       },
     },
   },
