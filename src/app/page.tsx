@@ -3,8 +3,8 @@ import React from "react";
 
 export default function page() {
   return (
-    <div className="h-screen w-screen overflow-hidden">
+    <main className="h-[200vh] w-screen overflow-hidden">
       <Loading />
-    </div>
+    </main>
   );
 }

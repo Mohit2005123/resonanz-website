@@ -15,6 +15,7 @@ function Loading() {
   }, []);
 
   useEffect(() => {
+    document.body.style.overflow = "hidden";
     const loadingTimer = setTimeout(() => {
       setLoading(false);
       console.log("Loading complete");
@@ -27,15 +28,20 @@ function Loading() {
     if (!loading) {
       const resonanzTimer = setTimeout(() => {
         setShowResonanz(true);
+        document.body.style.overflow = "auto";
       }, 1000);
 
-      return () => clearTimeout(resonanzTimer);
+      return () => {
+        clearTimeout(resonanzTimer);
+        document.body.style.overflow = "auto";
+      };
     }
   }, [loading]);
 
   return (
-    <div
-      className="h-screen w-full relative bg-cover bg-repeat overflow-hidden"
+    <section
+      id="container"
+      className={`h-screen w-full relative bg-cover bg-repeat overflow-hidden`}
       style={{ backgroundImage: "url('/StarsBG.png')" }}
     >
       <div
@@ -89,7 +95,7 @@ function Loading() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
